@@ -1,10 +1,7 @@
-.bookDisplay {
-    height: 250px;
-    width: 350px;
-    background-color: lightgreen;
-    margin: 25px;
-    padding: 25px;
+#bookDisplay {
     display:grid;  
+    grid-area: b;
+    gap: 5px;
 }
 
 #header {
@@ -47,10 +44,10 @@ body {
 #stats {
     display: grid;
     gap: 50px;
-    background-color: #F4DECB;
+    background-color: #94618E;
     grid-area: c;
     border-radius: 10px;
-    padding: 50px
+    padding: 35px
 }
 
 .form-popup {
@@ -63,7 +60,7 @@ body {
 .form-container {
     display: grid;
     padding-bottom: 100px;
-    gap: 20px;
+    gap: 15px;
     padding-right: 15px;
     padding-left: 15px;
     border-radius: 10px;
@@ -73,7 +70,14 @@ h1 {
     font-size: 20px;
 }
 
-
+.book-box {
+    height: 200px;
+    width: 300px;
+    background-color: #F4DECB;
+    border-radius: 10px;
+    border: 3px solid #351d36;
+    box-shadow: 0px 0px 10px #351d36
+}
     
 
 #stats, #header, #add, .form-container {

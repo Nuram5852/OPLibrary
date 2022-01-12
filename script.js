@@ -1,9 +1,11 @@
 const books = document.getElementById('books');
 const myForm = document.getElementById('myForm');
 const addButton = document.querySelector('#add');
+const bookDisplay = document.querySelector('#bookDisplay');
 
 
 let myLibrary = [];
+let bookBox;
 
 let formOpen = false;
 
@@ -39,4 +41,14 @@ function toggleForm() {
     }
 }
 
+function updateBookDisplay() {
+    for (i = 0; i <= myLibrary.length - 1; i++) {
+        bookBox = document.createElement('div');
+        bookBox.classList.add('book-box');
+        bookDisplay.append(bookBox);
+        console.log(bookBox);
+    }
+}
+
+updateBookDisplay();
 console.log(myLibrary);
