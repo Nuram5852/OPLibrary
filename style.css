@@ -1,0 +1,83 @@
+.bookDisplay {
+    height: 250px;
+    width: 350px;
+    background-color: lightgreen;
+    margin: 25px;
+    padding: 25px;
+    display:grid;  
+}
+
+#header {
+   text-align: center; 
+   font-size: 40px;
+   background-color: #94618E;
+   color: #351d36;
+   padding: 20px;
+   border-radius: 10px;
+   grid-area: a;
+}
+
+#container {
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+        "a a a a a" 
+        "b b b b c" 
+        "b b b b c" 
+}
+
+#add {
+    position: fixed;
+    bottom: 25px;
+    right: 30px;
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    font-size: 35px;
+    background-color: #94618E;
+    color: #351d36;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+body {
+    background-color: #F8EEE7;
+}
+
+#stats {
+    display: grid;
+    gap: 50px;
+    background-color: #F4DECB;
+    grid-area: c;
+    border-radius: 10px;
+    padding: 50px
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+}
+
+.form-container {
+    display: grid;
+    padding-bottom: 100px;
+    gap: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+
+    
+
+#stats, #header, #add, .form-container {
+    border: 3px solid #351d36;
+    box-shadow: 0px 0px 10px #351d36;
+}
+

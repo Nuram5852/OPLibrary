@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <div id='container'>
+        <div id='header'>Library</div>
+        <div id='bookDisplay'>
+        
+        </div>
+        <div id='stats'>
+            <p>Total Books: </p>
+            <p>Books Read: </p>
+            <p>Pages Read: </p>
+        </div>
+        <div class='form-popup' id='myForm'>
+            <form action='' class='form-container'>
+                <h1>Add a book to your Library</h1>
+
+                <label for='title'><b>Title</b></label>
+                <input type='text' placeholder="Title" name='title' required>
+
+                <label for='pages'><b>Pages</b></label>
+                <input type='text' placeholder="Pages" name='pages' required>
+
+                <label for='read'><b>Read?</b></label>
+
+                <div id='radio-button-container'>
+                    <input type='radio' id='yes' name='read' value='true'>
+                    <label for='yes'>Yes</label>
+                    <input type='radio' id='no' name='read' value='false'>
+                    <label for='no'>No</label>
+                </div>
+
+                <input type='submit' value='Submit'>
+            </form>
+        </div>
+    </div>
+    <button type='button' id='add' onclick="toggleForm()">+</button>
+    <script src='script.js'></script>
+</body>
+</html>
