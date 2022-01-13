@@ -50,5 +50,5 @@ function updateBookDisplay() {
     }
 }
 
-updateBookDisplay();
+//updateBookDisplay();
 console.log(myLibrary);

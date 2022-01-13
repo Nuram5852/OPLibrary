@@ -2,6 +2,8 @@
     display:grid;  
     grid-area: b;
     gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
 #header {
@@ -17,10 +19,11 @@
 #container {
     display: grid;
     gap: 20px;
+    grid-template-columns: 5fr 1fr;
     grid-template-areas: 
         "a a a a a" 
-        "b b b b c" 
-        "b b b b c" 
+        "b b b c c" 
+        "b b b c c" 
 }
 
 #add {
@@ -43,11 +46,16 @@ body {
 
 #stats {
     display: grid;
-    gap: 50px;
+    gap: 0px;
     background-color: #94618E;
     grid-area: c;
     border-radius: 10px;
-    padding: 35px
+    padding: 35px;
+    height: 325px;
+    max-width: 275px;
+    min-width: 275px;
+    right: 5px;
+    top: 130px;
 }
 
 .form-popup {
