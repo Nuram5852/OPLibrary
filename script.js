@@ -6,6 +6,9 @@ const bookDisplay = document.querySelector('#bookDisplay');
 
 let myLibrary = [];
 let bookBox;
+let bookTitle;
+let bookPages;
+let bookReadStatus;
 
 let formOpen = false;
 
@@ -46,9 +49,31 @@ function updateBookDisplay() {
         bookBox = document.createElement('div');
         bookBox.classList.add('book-box');
         bookDisplay.append(bookBox);
-        console.log(bookBox);
+        bookBox.id = `box-${i}`;
+        addTitle();
+        addPages();
     }
 }
 
-//updateBookDisplay();
+function addTitle() {
+    let box = document.getElementById(`box-${i}`);
+    let bookTitle = document.createElement('div');
+    bookTitle.classList.add('title');
+    let text = document.createTextNode(`${myLibrary[i].title}`);
+    bookTitle.append(text);
+    bookBox.append(bookTitle);
+}
+
+function addPages() {
+    let box = document.getElementById(`box-${i}`);
+    let bookTitle = document.createElement('div');
+    bookTitle.classList.add('title');
+    let text = document.createTextNode(`${myLibrary[i].pages}`);
+    bookTitle.append(text);
+    bookBox.append(bookTitle);
+}
+
+updateBookDisplay();
+
+
 console.log(myLibrary);
