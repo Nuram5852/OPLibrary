@@ -4,7 +4,6 @@ const addButton = document.querySelector('#add');
 const bookDisplay = document.querySelector('#bookDisplay');
 const form = document.forms[0];
 
-
 let myLibrary = [];
 let bookBox;
 let bookPages;
@@ -14,8 +13,8 @@ let formOpen = false;
 
 addBookToLibrary.prototype = Object.create(Book.prototype);
 
-//const firstBook = new addBookToLibrary('East of Eden', 608, true);
-//const secondBook = new addBookToLibrary('Dandelion Wine', 281, true);
+const firstBook = new addBookToLibrary('East of Eden', 608, true);
+const secondBook = new addBookToLibrary('Dandelion Wine', 281, true);
 
 //Constructor
 function Book() {
@@ -54,6 +53,7 @@ function updateBookDisplay() {
 
         addTitle();
         addPages();
+        addRemoveButton();
     }
 }
 
@@ -73,10 +73,26 @@ function addPages() {
     bookBox.append(bookPages);
 }
 
+function addRemoveButton() {
+    let removeButton = document.createElement('button');
+    removeButton.classList.add('remove-button');
+    let buttonText = document.createTextNode('Remove')
+    removeButton.append(buttonText);
+    bookBox.append(removeButton);
+
+    removeButton.addEventListener('click', removeDisplay);
+}
+
+function removeDisplay() {
+    console.log('hoops');
+}
+
 function pushToLibrary(data) {
-    myLibrary.push(data);
+    let book = new addBookToLibrary(data.title, parseInt(data.pages), data.read);
     setData();
     updateBookDisplay();
+
+    console.log(myLibrary);
 }
 
 function setData() {
@@ -104,4 +120,4 @@ form.addEventListener('submit', function(event) {
     const data = Object.fromEntries(entries);
 
     pushToLibrary(data);
-});
+};
