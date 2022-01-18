@@ -2,11 +2,11 @@ const books = document.getElementById('books');
 const myForm = document.getElementById('myForm');
 const addButton = document.querySelector('#add');
 const bookDisplay = document.querySelector('#bookDisplay');
+const form = document.forms[0];
 
 
 let myLibrary = [];
 let bookBox;
-let bookTitle;
 let bookPages;
 let bookReadStatus;
 
@@ -45,18 +45,19 @@ function toggleForm() {
 }
 
 function updateBookDisplay() {
+    bookDisplay.innerHTML = ' ';
     for (i = 0; i <= myLibrary.length - 1; i++) {
         bookBox = document.createElement('div');
         bookBox.classList.add('book-box');
         bookDisplay.append(bookBox);
         bookBox.id = `box-${i}`;
+
         addTitle();
         addPages();
     }
 }
 
 function addTitle() {
-    let box = document.getElementById(`box-${i}`);
     let bookTitle = document.createElement('div');
     bookTitle.classList.add('title');
     let text = document.createTextNode(`${myLibrary[i].title}`);
@@ -65,15 +66,26 @@ function addTitle() {
 }
 
 function addPages() {
-    let box = document.getElementById(`box-${i}`);
-    let bookTitle = document.createElement('div');
-    bookTitle.classList.add('title');
+    let bookPages = document.createElement('div');
+    bookPages.classList.add('title');
     let text = document.createTextNode(`${myLibrary[i].pages}`);
-    bookTitle.append(text);
-    bookBox.append(bookTitle);
+    bookPages.append(text);
+    bookBox.append(bookPages);
+}
+
+function pushToLibrary(data) {
+    myLibrary.push(data);
+    updateBookDisplay();
 }
 
 updateBookDisplay();
 
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
 
-console.log(myLibrary);
+    const entries = formData.entries();
+    const data = Object.fromEntries(entries);
+
+    pushToLibrary(data);
+});
