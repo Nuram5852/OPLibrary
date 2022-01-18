@@ -14,8 +14,8 @@ let formOpen = false;
 
 addBookToLibrary.prototype = Object.create(Book.prototype);
 
-const firstBook = new addBookToLibrary('East of Eden', 608, true);
-const secondBook = new addBookToLibrary('Dandelion Wine', 281, true);
+//const firstBook = new addBookToLibrary('East of Eden', 608, true);
+//const secondBook = new addBookToLibrary('Dandelion Wine', 281, true);
 
 //Constructor
 function Book() {
@@ -75,10 +75,26 @@ function addPages() {
 
 function pushToLibrary(data) {
     myLibrary.push(data);
+    setData();
     updateBookDisplay();
 }
 
-updateBookDisplay();
+function setData() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+function restore() {
+    if (!localStorage.myLibrary) {
+        updateBookDisplay();
+    } else {
+        let objects = localStorage.getItem('myLibrary');
+        objects = JSON.parse(objects);
+        myLibrary = objects;
+        updateBookDisplay();
+    }
+}
+
+restore();
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
