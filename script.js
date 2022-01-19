@@ -88,14 +88,15 @@ function removeDisplay() {
     let dataNum = this.parentNode.getAttribute('data-num');
     myLibrary.splice(`${dataNum}`, 1);
     display.remove();
-    console.log(myLibrary);
+
     setData();
+    restore();
 }
 
 function pushToLibrary(data) {
     let book = new addBookToLibrary(data.title, parseInt(data.pages), data.read);
     setData();
-    updateBookDisplay();
+    restore();
 }
 
 function setData() {
