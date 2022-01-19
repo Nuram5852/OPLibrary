@@ -22,7 +22,11 @@ function addBookToLibrary(title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    if (read === 'true') {
+        this.read = true;
+    } else {
+        this.read = false
+    }
 
     myLibrary.push(this);
 }
@@ -52,6 +56,7 @@ function updateBookDisplay() {
         addTitle();
         addAuthor();
         addPages();
+        addReadToggle(i);
         addRemoveButton();
     }
 }
@@ -80,6 +85,21 @@ function addPages() {
     bookBox.append(bookPages);
 }
 
+function addReadToggle(i) {
+    let readButton = document.createElement('button');
+    readButton.classList.add('read-button');
+    
+    (myLibrary[i].read) ? readButton.classList.add('read') : readButton.classList.add('not-read');
+
+    let text;
+    (myLibrary[i].read) ? text = document.createTextNode('Read') : text = document.createTextNode('Not Read');
+
+    readButton.append(text);
+    bookBox.append(readButton);
+
+    readButton.addEventListener('click', toggleReadStatus);
+}
+
 function addRemoveButton() {
     let removeButton = document.createElement('button');
     removeButton.classList.add('remove-button');
@@ -95,6 +115,18 @@ function removeDisplay() {
     let dataNum = this.parentNode.getAttribute('data-num');
     myLibrary.splice(`${dataNum}`, 1);
     display.remove();
+
+    setData();
+    restore();
+}
+
+function toggleReadStatus() {
+    let dataNum = this.parentNode.getAttribute('data-num');
+    if (myLibrary[dataNum].read) {
+        myLibrary[dataNum].read = false;
+    } else {
+        myLibrary[dataNum].read = true;
+    }
 
     setData();
     restore();
