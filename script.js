@@ -13,8 +13,8 @@ let formOpen = false;
 
 addBookToLibrary.prototype = Object.create(Book.prototype);
 
-const firstBook = new addBookToLibrary('East of Eden', 608, true);
-const secondBook = new addBookToLibrary('Dandelion Wine', 281, true);
+//const firstBook = new addBookToLibrary('East of Eden', 608, true);
+//const secondBook = new addBookToLibrary('Dandelion Wine', 281, true);
 
 //Constructor
 function Book() {
@@ -49,7 +49,7 @@ function updateBookDisplay() {
         bookBox = document.createElement('div');
         bookBox.classList.add('book-box');
         bookDisplay.append(bookBox);
-        bookBox.id = `box-${i}`;
+        bookBox.setAttribute('data-num', `${i}`);
 
         addTitle();
         addPages();
@@ -84,15 +84,18 @@ function addRemoveButton() {
 }
 
 function removeDisplay() {
-    console.log('hoops');
+    let display = this.parentNode;
+    let dataNum = this.parentNode.getAttribute('data-num');
+    myLibrary.splice(`${dataNum}`, 1);
+    display.remove();
+    console.log(myLibrary);
+    setData();
 }
 
 function pushToLibrary(data) {
     let book = new addBookToLibrary(data.title, parseInt(data.pages), data.read);
     setData();
     updateBookDisplay();
-
-    console.log(myLibrary);
 }
 
 function setData() {
@@ -120,4 +123,4 @@ form.addEventListener('submit', function(event) {
     const data = Object.fromEntries(entries);
 
     pushToLibrary(data);
-};
+});
