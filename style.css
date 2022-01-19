@@ -2,7 +2,7 @@
     display:grid;  
     grid-area: b;
     gap: 5px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
 
@@ -63,6 +63,7 @@ body {
     position: fixed;
     bottom: 10px;
     right: 15px;
+    background-color: #F8EEE7;
 }
 
 .form-container {
@@ -80,7 +81,7 @@ h1 {
 
 .book-box {
     height: 200px;
-    width: 300px;
+    width: 292px;
     background-color: #F4DECB;
     border-radius: 10px;
     border: 3px solid #351d36;
