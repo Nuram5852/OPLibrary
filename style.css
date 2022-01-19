@@ -98,3 +98,24 @@ h1 {
 p.display-text {
     font-size: 20px;
 }   
+
+.read {
+    background-color: rgb(35, 145, 35);
+}
+
+.not-read {
+    background-color: rgb(185, 40, 40);
+}
+
+.read, .not-read, .remove-button {
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 100px;
+    box-shadow: 0px 0px 4px #351d36;
+}
+
+.remove-button {
+    background-color: #94618E;
+}

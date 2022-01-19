@@ -1,4 +1,3 @@
-const books = document.getElementById('books');
 const myForm = document.getElementById('myForm');
 const addButton = document.querySelector('#add');
 const bookDisplay = document.querySelector('#bookDisplay');
@@ -6,8 +5,6 @@ const form = document.forms[0];
 
 let myLibrary = [];
 let bookBox;
-let bookPages;
-let bookReadStatus;
 
 let formOpen = false;
 
@@ -122,11 +119,8 @@ function removeDisplay() {
 
 function toggleReadStatus() {
     let dataNum = this.parentNode.getAttribute('data-num');
-    if (myLibrary[dataNum].read) {
-        myLibrary[dataNum].read = false;
-    } else {
-        myLibrary[dataNum].read = true;
-    }
+    
+    (myLibrary[dataNum].read) ? myLibrary[dataNum].read = false : myLibrary[dataNum].read = true;
 
     setData();
     restore();
