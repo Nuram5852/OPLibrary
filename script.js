@@ -13,16 +13,14 @@ let formOpen = false;
 
 addBookToLibrary.prototype = Object.create(Book.prototype);
 
-//const firstBook = new addBookToLibrary('East of Eden', 608, true);
-//const secondBook = new addBookToLibrary('Dandelion Wine', 281, true);
-
 //Constructor
 function Book() {
 
 }
 
-function addBookToLibrary(title, pages, read){
+function addBookToLibrary(title, author, pages, read){
     this.title = title;
+    this.author = author;
     this.pages = pages;
     this.read = read;
 
@@ -52,6 +50,7 @@ function updateBookDisplay() {
         bookBox.setAttribute('data-num', `${i}`);
 
         addTitle();
+        addAuthor();
         addPages();
         addRemoveButton();
     }
@@ -63,6 +62,14 @@ function addTitle() {
     let text = document.createTextNode(`${myLibrary[i].title}`);
     bookTitle.append(text);
     bookBox.append(bookTitle);
+}
+
+function addAuthor() {
+    let bookAuthor = document.createElement('div');
+    bookAuthor.classList.add('author');
+    let text = document.createTextNode(`${myLibrary[i].author}`);
+    bookAuthor.append(text);
+    bookBox.append(bookAuthor);
 }
 
 function addPages() {
@@ -94,7 +101,7 @@ function removeDisplay() {
 }
 
 function pushToLibrary(data) {
-    let book = new addBookToLibrary(data.title, parseInt(data.pages), data.read);
+    let book = new addBookToLibrary(data.title, data.author, parseInt(data.pages), data.read);
     setData();
     restore();
 }
