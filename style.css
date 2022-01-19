@@ -107,7 +107,7 @@ p.display-text {
     background-color: rgb(185, 40, 40);
 }
 
-.read, .not-read, .remove-button {
+.read, .not-read, .remove-button, .submit, #clear{
     border-radius: 10px;
     border: 2px solid black;
     padding: 10px;
@@ -116,6 +116,16 @@ p.display-text {
     box-shadow: 0px 0px 4px #351d36;
 }
 
-.remove-button {
+.remove-button, .submit {
     background-color: #94618E;
+}
+
+button, .submit {
+    cursor: pointer;
+}
+
+#clear {
+    height: 50px;
+    background-color: #94618E;
+    color: #351d36;
 }

@@ -119,7 +119,7 @@ function removeDisplay() {
 
 function toggleReadStatus() {
     let dataNum = this.parentNode.getAttribute('data-num');
-    
+
     (myLibrary[dataNum].read) ? myLibrary[dataNum].read = false : myLibrary[dataNum].read = true;
 
     setData();
@@ -145,6 +145,12 @@ function restore() {
         myLibrary = objects;
         updateBookDisplay();
     }
+}
+
+function clearLibrary() {
+    bookDisplay.innerHTML = ' ';
+    localStorage.clear();
+    myLibrary = [];
 }
 
 restore();
